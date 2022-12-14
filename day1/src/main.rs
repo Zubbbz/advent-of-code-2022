@@ -1,8 +1,8 @@
 use std::{fs, path::Path};
-const INPUTFILEPATH: &str = "D:\\Github_Files\\advent-of-code-2022\\day1\\input.txt";
+const INPUTFILEPATH: &str = "/home/nathan/repos/advent-of-code-2022/day1/input.txt";
 
 fn str_to_path(path: &str) -> &Path {
-	return Path::new(path);
+	Path::new(path)
 }
 
 fn parse_input(path: &Path) -> Vec<Vec<u32>> {
@@ -23,15 +23,15 @@ fn parse_input(path: &Path) -> Vec<Vec<u32>> {
 	}
 
 	// return a vector of vectors of u32
-	return elves;
+	elves
 }
 
-fn parse_elf_calories(elves: &Vec<Vec<u32>>) -> Vec<u32> {
+fn parse_elf_calories(elves: &[Vec<u32>]) -> Vec<u32> {
 	return elves
-	.into_iter()
+	.iter()
 	.map(|inner_vec|
 	inner_vec
-		.into_iter()
+		.iter()
 		.sum())
 		.collect();
 }
